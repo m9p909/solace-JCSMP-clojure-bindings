@@ -1,0 +1,4 @@
+{
+  "src/*.clj": {"alternate": "test/{}.clj"},
+  "test/*.clj": {"alternate": "src/{}.clj"}
+}

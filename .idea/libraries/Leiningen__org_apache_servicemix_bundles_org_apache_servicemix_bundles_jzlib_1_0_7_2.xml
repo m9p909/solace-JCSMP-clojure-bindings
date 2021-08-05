@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: org.apache.servicemix.bundles/org.apache.servicemix.bundles.jzlib:1.0.7_2">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/servicemix/bundles/org.apache.servicemix.bundles.jzlib/1.0.7_2/org.apache.servicemix.bundles.jzlib-1.0.7_2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

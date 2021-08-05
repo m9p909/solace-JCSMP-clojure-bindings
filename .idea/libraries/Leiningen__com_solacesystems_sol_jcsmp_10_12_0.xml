@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: com.solacesystems/sol-jcsmp:10.12.0">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/solacesystems/sol-jcsmp/10.12.0/sol-jcsmp-10.12.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
