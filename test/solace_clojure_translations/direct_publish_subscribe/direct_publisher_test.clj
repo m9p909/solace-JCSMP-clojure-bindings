@@ -4,6 +4,7 @@
   (:import (com.solacesystems.jcsmp JCSMPProperties
                                     JCSMPChannelProperties JCSMPSession InvalidPropertiesException BytesXMLMessage TextMessage XMLMessageConsumer)))
 
+(require '[environ.core :refer [env]])
 
 (defn loop-function [arg1] arg1)
 (def test-args1 '["1" "2" "3"])
@@ -11,7 +12,7 @@
 (deftest loop-function-test
   (is (= test-args1 (loop-function test-args1))))
 (deftest check-args-test-success (is (= test-args1
-         (check-args test-args1 3 loop-function))))
+                                        (check-args test-args1 3 loop-function))))
 
 (deftest check-args-not-enough
   (is (= nil
@@ -66,7 +67,10 @@
       (println (.getSessionName (create-session host vpn username password))))
     (catch InvalidPropertiesException e "success")))
 
-(def valid-info ["***REMOVED***" "test" "solace-cloud-client" "***REMOVED***"]) ; fill in actual server data here
+(deftest environment-contains-keys
+  )
+(def valid-info [ "test" "solace-cloud-client" "***REMOVED***"]) ; fill in actual server data here
+
 
 (deftest create-session-with-valid-info
   (let [[host vpn username password] valid-info
@@ -112,18 +116,23 @@
 (deftest create-xml-message-consumer-runs
   (let [[host vpn username password] valid-info]
     (def curr-session (create-session host vpn username password))
-    (def consumer (create-xml-message-consumer curr-session #(println "cool" ) #(println "uncool")))
+    (def consumer (create-xml-message-consumer curr-session #(println "cool") #(println "uncool")))
     (.start consumer)))
 
-(deftest example-usage-subscribe
+
+
+(deftest subscribe
   (let [[host vpn username password] valid-info
-        session (create-session host vpn username password )]
-    (defn on-receive [msg] (println "Message dump:" (.dump msg))) 
+        session (create-session host vpn username password)]
+    (defn on-receive [msg]
+      (assert (instance? BytesXMLMessage msg))
+      (println "Message dump:" (.dump msg)))
     (subscribe
       session
       (create-topic "try-me"))
-    (.start (create-xml-message-consumer session on-receive  ))
+    (.start (create-xml-message-consumer session on-receive))
     (Thread/sleep (* 1000 10))))
+
 
 (example-usage-subscribe)
 
