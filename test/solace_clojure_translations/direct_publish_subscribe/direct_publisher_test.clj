@@ -67,10 +67,11 @@
       (println (.getSessionName (create-session host vpn username password))))
     (catch InvalidPropertiesException e "success")))
 
-(deftest environment-contains-keys
-  )
-(def valid-info [ "test" "solace-cloud-client" "***REMOVED***"]) ; fill in actual server data here
-
+(def solace-pubsub-login (eval (read-string (env :solace))))
+(def valid-info [(solace-pubsub-login :host)
+                 (solace-pubsub-login :vpn)
+                 (solace-pubsub-login :username)
+                 (solace-pubsub-login :password)])
 
 (deftest create-session-with-valid-info
   (let [[host vpn username password] valid-info
@@ -121,7 +122,7 @@
 
 
 
-(deftest subscribe
+(deftest subscribe-test
   (let [[host vpn username password] valid-info
         session (create-session host vpn username password)]
     (defn on-receive [msg]
@@ -132,7 +133,3 @@
       (create-topic "try-me"))
     (.start (create-xml-message-consumer session on-receive))
     (Thread/sleep (* 1000 10))))
-
-
-(example-usage-subscribe)
-
