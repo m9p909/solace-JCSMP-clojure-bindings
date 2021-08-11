@@ -1,32 +1,23 @@
 # solace-clojure-translations
 
-FIXME: description
+A simple binding for Solace PubSub+ to Clojure. WIP
+
+Currently methods are implemented to create sessions, topics and subscribe to a specific topic. Next is publishing, then who knows. 
 
 ## Installation
 
-Download from http://example.com/FIXME.
 
 ## Usage
 
-FIXME: explanation
-
-    $ java -jar solace-clojure-translations-0.1.0-standalone.jar [args]
 
 ## Options
 
-FIXME: listing of options this app accepts.
 
 ## Examples
 
-...
 
 ### Bugs
 
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
 
 ## License
 
