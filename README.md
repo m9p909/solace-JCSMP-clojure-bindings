@@ -21,7 +21,7 @@ Currently methods are implemented to create sessions, topics and subscribe to a 
 
 ## License
 
-Copyright © 2021 FIXME
+Copyright © 2021 Jack Clarke
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at
