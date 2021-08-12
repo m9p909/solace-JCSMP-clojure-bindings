@@ -2,7 +2,7 @@
 
 A simple binding for Solace PubSub+ to Clojure. WIP
 
-Currently methods are implemented to create sessions, topics and subscribe to a specific topic. Next is publishing, then who knows. 
+Currently methods are implemented to create sessions, topics and subscribe to a specific topic. Next is publishing. 
 
 ## Installation
 
